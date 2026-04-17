@@ -2,22 +2,24 @@ import { expSt } from "../../utils/formatters";
 
 export function MedList({ meds, showActions, onEdit, onDelete }) {
   if (!meds.length) return (
-    <div className="empty">
-      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-        <rect x="2" y="10" width="20" height="8" rx="4" />
-        <path d="M12 10v8" />
-      </svg>
-      <p>No medicines here.</p>
-    </div>
-  );
+      <div className="empty anim-entrance">
+        <svg className="anim-float" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+          <rect x="2" y="10" width="20" height="8" rx="4" />
+          <path d="M12 10v8" />
+        </svg>
+        <p>No medicines here.</p>
+      </div>
+    );
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-      {meds.map(m => {
+      {meds.map((m, idx) => {
         const isExpired  = expSt(m.expiry) === "expired";
         const q          = m.quantity ? parseFloat(m.quantity) : null;
         const isLowStock = q !== null && q <= 10;
         const isUpcoming = q !== null && q > 10 && q <= 20;
+        
+        let staggerClass = `anim-stagger-${(idx % 3) + 1}`;
 
         let stStatus = "Active", stColor = "var(--g)", stBg = "var(--gl)";
         if (isExpired) { stStatus = "Expired"; stColor = "var(--r)"; stBg = "var(--rl)"; }
@@ -25,32 +27,26 @@ export function MedList({ meds, showActions, onEdit, onDelete }) {
         else if (isUpcoming) { stStatus = "Upcoming Refill"; stColor = "var(--b)"; stBg = "var(--bl)"; }
 
         return (
-          <div key={m.id} style={{ 
-            background: "var(--sf)", backdropFilter: "blur(12px)", 
-            borderRadius: 16, padding: "12px 16px", 
-            boxShadow: "var(--sh)", border: "1px solid var(--bd)",
-            display: "flex", alignItems: "center", gap: 16, transition: "all 0.2s" 
-          }}>
-
+          <div key={m.id} className={`med-card anim-entrance ${staggerClass}`} style={{ borderLeft: `4px solid ${stColor}` }}>
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-                <h3 style={{ margin: 0, fontFamily: "'Syne', sans-serif", fontSize: 16, fontWeight: 700, color: "var(--tx)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", lineHeight: 1.2 }}>
+                <h3 style={{ margin: 0, fontFamily: "'Syne', sans-serif", fontSize: "var(--text-base)", fontWeight: 700, color: "var(--tx)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", lineHeight: 1.2 }}>
                   {m.name}
                 </h3>
-                <span style={{ display: "inline-block", background: stBg, color: stColor, padding: "2px 8px", borderRadius: 6, fontSize: 10, fontWeight: 700, letterSpacing: 0.3, textTransform: "uppercase" }}>
+                <span style={{ display: "inline-block", background: stBg, color: stColor, padding: "2px 8px", borderRadius: 6, fontSize: "var(--text-xs)", fontWeight: 700, letterSpacing: 0.3, textTransform: "uppercase" }}>
                   {stStatus}
                 </span>
               </div>
 
               <div style={{ display: "flex", gap: 8, marginTop: 4, alignItems: "center", flexWrap: "wrap" }}>
                 {(m.dosage || m.frequency) && (
-                  <div style={{ fontSize: 12, color: "var(--t2)", fontWeight: 500, display: "flex", alignItems: "center", gap: 4 }}>
+                  <div style={{ fontSize: "var(--text-xs)", color: "var(--t2)", fontWeight: 500, display: "flex", alignItems: "center", gap: 4 }}>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg>
                     {m.dosage}{m.dosage && m.frequency ? " • " : ""}{m.frequency}
                   </div>
                 )}
                 {m.expiry && (
-                  <div style={{ fontSize: 12, color: "var(--t2)", fontWeight: 500, display: "flex", alignItems: "center", gap: 4 }}>
+                  <div style={{ fontSize: "var(--text-xs)", color: "var(--t2)", fontWeight: 500, display: "flex", alignItems: "center", gap: 4 }}>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                     Exp: {m.expiry}
                   </div>

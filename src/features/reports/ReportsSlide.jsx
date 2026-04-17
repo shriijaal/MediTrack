@@ -7,7 +7,7 @@ const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "
 // Adherence ring
 const AdherenceRing = ({ pct }) => {
   if (pct === null || pct === undefined) return (
-    <div style={{ textAlign: "center", color: "var(--t3)", fontSize: 13 }}>No data yet</div>
+    <div style={{ textAlign: "center", color: "var(--t3)", fontSize: "var(--text-sm)" }}>No data yet</div>
   );
   const r = 40, circ = 2 * Math.PI * r;
   const stroke = circ - (pct / 100) * circ;
@@ -21,11 +21,11 @@ const AdherenceRing = ({ pct }) => {
           strokeLinecap="round" transform="rotate(-90 50 50)"
           style={{ transition: "stroke-dashoffset .6s ease" }} />
         <text x="50" y="50" textAnchor="middle" dominantBaseline="middle"
-          style={{ fontSize: 18, fontWeight: 800, fill: color, fontFamily: "'Syne',sans-serif" }}>
+          style={{ fontSize: "var(--text-lg)", fontWeight: 800, fill: color, fontFamily: "'Syne',sans-serif" }}>
           {pct}%
         </text>
       </svg>
-      <div style={{ fontSize: 12, fontWeight: 600, color: "var(--t2)" }}>Adherence Rate</div>
+      <div style={{ fontSize: "var(--text-xs)", fontWeight: 600, color: "var(--t2)" }}>Adherence Rate</div>
     </div>
   );
 };
@@ -59,7 +59,7 @@ const BarChart = ({ bars }) => {
               <div style={{ width: "100%", height: 4, borderRadius: 4, background: "var(--s2)" }} />
             )}
           </div>
-          <div style={{ fontSize: 10, fontWeight: 600, color: "var(--t3)", textAlign: "center" }}>
+          <div style={{ fontSize: "var(--text-xs)", fontWeight: 600, color: "var(--t3)", textAlign: "center" }}>
             {b.label}
           </div>
         </div>
@@ -88,11 +88,11 @@ const DoseRow = ({ item, status }) => (
       }
     </div>
     <div style={{ flex: 1, minWidth: 0 }}>
-      <div style={{ fontSize: 13, fontWeight: 700, color: "var(--tx)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{item.med_name}</div>
-      <div style={{ fontSize: 11, color: "var(--t3)", marginTop: 1 }}>{item.log_date} · {item.time}</div>
+      <div style={{ fontSize: "var(--text-sm)", fontWeight: 700, color: "var(--tx)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{item.med_name}</div>
+      <div style={{ fontSize: "var(--text-xs)", color: "var(--t3)", marginTop: 1 }}>{item.log_date} · {item.time}</div>
     </div>
     <span style={{
-      fontSize: 11, fontWeight: 700, padding: "2px 8px", borderRadius: 6,
+      fontSize: "var(--text-xs)", fontWeight: 700, padding: "2px 8px", borderRadius: 6,
       background: status === "taken" ? "#DCFCE7" : "#FEE2E2",
       color: status === "taken" ? "#16A34A" : "#DC2626",
       flexShrink: 0,
@@ -116,19 +116,19 @@ const ChangeRow = ({ item }) => (
       </svg>
     </div>
     <div style={{ flex: 1, minWidth: 0 }}>
-      <div style={{ fontSize: 13, fontWeight: 700, color: "var(--tx)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{item.name}</div>
-      <div style={{ fontSize: 11, color: "var(--t3)", marginTop: 1 }}>{item.dosage} {item.unit} · {item.frequency}</div>
+      <div style={{ fontSize: "var(--text-sm)", fontWeight: 700, color: "var(--tx)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{item.name}</div>
+      <div style={{ fontSize: "var(--text-xs)", color: "var(--t3)", marginTop: 1 }}>{item.dosage} {item.unit} · {item.frequency}</div>
     </div>
-    <span style={{ fontSize: 11, fontWeight: 700, padding: "2px 8px", borderRadius: 6, background: "#DBEAFE", color: "#2563EB", flexShrink: 0 }}>Added {item.date}</span>
+    <span style={{ fontSize: "var(--text-xs)", fontWeight: 700, padding: "2px 8px", borderRadius: 6, background: "#DBEAFE", color: "#2563EB", flexShrink: 0 }}>Added {item.date}</span>
   </div>
 );
 
 const SectionHeader = ({ label, count, color }) => (
   <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8, marginTop: 16 }}>
     <div style={{ width: 3, height: 16, borderRadius: 2, background: color, flexShrink: 0 }} />
-    <div style={{ fontSize: 12, fontWeight: 700, color: "var(--t2)", textTransform: "uppercase", letterSpacing: ".5px" }}>{label}</div>
+    <div style={{ fontSize: "var(--text-xs)", fontWeight: 700, color: "var(--t2)", textTransform: "uppercase", letterSpacing: ".5px" }}>{label}</div>
     {count !== undefined && (
-      <span style={{ marginLeft: "auto", fontSize: 12, fontWeight: 700, color, background: color + "22", borderRadius: 20, padding: "1px 10px" }}>{count}</span>
+      <span style={{ marginLeft: "auto", fontSize: "var(--text-xs)", fontWeight: 700, color, background: color + "22", borderRadius: 20, padding: "1px 10px" }}>{count}</span>
     )}
   </div>
 );
@@ -190,7 +190,7 @@ export function ReportsSlide({ userId, onBack }) {
         {["daily", "weekly", "monthly"].map(v => (
           <button key={v} onClick={() => setView(v)} style={{
             flex: 1, padding: "8px 0", borderRadius: 10, border: "none", cursor: "pointer",
-            fontFamily: "'Syne',sans-serif", fontSize: 12, fontWeight: 700,
+            fontFamily: "'Syne',sans-serif", fontSize: "var(--text-xs)", fontWeight: 700,
             letterSpacing: ".3px", textTransform: "capitalize", transition: "all .2s",
             background: view === v ? "var(--sf)" : "transparent",
             color: view === v ? "var(--g)" : "var(--t3)",
@@ -206,9 +206,9 @@ export function ReportsSlide({ userId, onBack }) {
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="15 18 9 12 15 6" /></svg>
         </button>
         <div style={{ textAlign: "center" }}>
-          {view === "daily" && <div style={{ fontFamily: "'Syne',sans-serif", fontSize: 14, fontWeight: 700 }}>{new Date(curDate + "T12:00:00").toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" })}</div>}
-          {view === "weekly" && data && <div style={{ fontFamily: "'Syne',sans-serif", fontSize: 14, fontWeight: 700 }}>{data.from} → {data.to}</div>}
-          {view === "monthly" && <div style={{ fontFamily: "'Syne',sans-serif", fontSize: 14, fontWeight: 700 }}>{MONTHS[curMonth - 1]} {curYear}</div>}
+          {view === "daily" && <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "var(--text-sm)", fontWeight: 700 }}>{new Date(curDate + "T12:00:00").toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" })}</div>}
+          {view === "weekly" && data && <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "var(--text-sm)", fontWeight: 700 }}>{data.from} → {data.to}</div>}
+          {view === "monthly" && <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "var(--text-sm)", fontWeight: 700 }}>{MONTHS[curMonth - 1]} {curYear}</div>}
         </div>
         <button onClick={() => view === "monthly" ? shiftMonth(1) : view === "weekly" ? shiftWeek(1) : shiftDate(1)}
           style={{ background: "var(--s2)", border: "none", borderRadius: 8, width: 32, height: 32, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--t2)" }}>
@@ -217,7 +217,7 @@ export function ReportsSlide({ userId, onBack }) {
       </div>
 
       {loading && <div style={{ textAlign: "center", padding: "40px 0", color: "var(--t3)" }}>Loading report…</div>}
-      {error && <div style={{ background: "var(--rl)", color: "var(--r)", borderRadius: 10, padding: "12px 16px", marginBottom: 16, fontSize: 13 }}>{error}</div>}
+      {error && <div style={{ background: "var(--rl)", color: "var(--r)", borderRadius: 10, padding: "12px 16px", marginBottom: 16, fontSize: "var(--text-sm)" }}>{error}</div>}
 
       {!loading && data && (<>
         {/* Adherence + summary stats */}
@@ -226,17 +226,17 @@ export function ReportsSlide({ userId, onBack }) {
           <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ display: "flex", gap: 8 }}>
               <div style={{ flex: 1, background: "#F0FDF4", borderRadius: 10, padding: "10px 12px", border: "1px solid #BBF7D0" }}>
-                <div style={{ fontFamily: "'Syne',sans-serif", fontSize: 22, fontWeight: 800, color: "#16A34A" }}>{data.taken?.length ?? 0}</div>
-                <div style={{ fontSize: 11, fontWeight: 600, color: "#16A34A", marginTop: 2 }}>✓ Taken</div>
+                <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "var(--text-2xl)", fontWeight: 800, color: "#16A34A" }}>{data.taken?.length ?? 0}</div>
+                <div style={{ fontSize: "var(--text-xs)", fontWeight: 600, color: "#16A34A", marginTop: 2 }}>✓ Taken</div>
               </div>
               <div style={{ flex: 1, background: "#FEF2F2", borderRadius: 10, padding: "10px 12px", border: "1px solid #FECACA" }}>
-                <div style={{ fontFamily: "'Syne',sans-serif", fontSize: 22, fontWeight: 800, color: "#DC2626" }}>{data.missed?.length ?? 0}</div>
-                <div style={{ fontSize: 11, fontWeight: 600, color: "#DC2626", marginTop: 2 }}>✗ Missed</div>
+                <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "var(--text-2xl)", fontWeight: 800, color: "#DC2626" }}>{data.missed?.length ?? 0}</div>
+                <div style={{ fontSize: "var(--text-xs)", fontWeight: 600, color: "#DC2626", marginTop: 2 }}>✗ Missed</div>
               </div>
             </div>
             {data.changes?.length > 0 && (
               <div style={{ background: "#EFF6FF", borderRadius: 10, padding: "8px 12px", border: "1px solid #BFDBFE" }}>
-                <div style={{ fontSize: 11, fontWeight: 600, color: "#2563EB" }}>+ {data.changes.length} medicine{data.changes.length > 1 ? "s" : ""} added</div>
+                <div style={{ fontSize: "var(--text-xs)", fontWeight: 600, color: "#2563EB" }}>+ {data.changes.length} medicine{data.changes.length > 1 ? "s" : ""} added</div>
               </div>
             )}
           </div>
@@ -248,10 +248,10 @@ export function ReportsSlide({ userId, onBack }) {
           <div style={{ background: "var(--sf)", borderRadius: 14, padding: "16px", boxShadow: "var(--sh)", marginBottom: 4 }}>
             <BarChart bars={data.days} />
             <div style={{ display: "flex", gap: 12, marginTop: 10, justifyContent: "center" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 5, fontSize: 11, fontWeight: 600, color: "#16A34A" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 5, fontSize: "var(--text-xs)", fontWeight: 600, color: "#16A34A" }}>
                 <div style={{ width: 10, height: 10, borderRadius: 2, background: "#16A34A" }} />Taken
               </div>
-              <div style={{ display: "flex", alignItems: "center", gap: 5, fontSize: 11, fontWeight: 600, color: "#DC2626" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 5, fontSize: "var(--text-xs)", fontWeight: 600, color: "#DC2626" }}>
                 <div style={{ width: 10, height: 10, borderRadius: 2, background: "#DC2626" }} />Missed
               </div>
             </div>
@@ -263,10 +263,10 @@ export function ReportsSlide({ userId, onBack }) {
           <div style={{ background: "var(--sf)", borderRadius: 14, padding: "16px", boxShadow: "var(--sh)", marginBottom: 4 }}>
             <BarChart bars={data.weeks} />
             <div style={{ display: "flex", gap: 12, marginTop: 10, justifyContent: "center" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 5, fontSize: 11, fontWeight: 600, color: "#16A34A" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 5, fontSize: "var(--text-xs)", fontWeight: 600, color: "#16A34A" }}>
                 <div style={{ width: 10, height: 10, borderRadius: 2, background: "#16A34A" }} />Taken
               </div>
-              <div style={{ display: "flex", alignItems: "center", gap: 5, fontSize: 11, fontWeight: 600, color: "#DC2626" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 5, fontSize: "var(--text-xs)", fontWeight: 600, color: "#DC2626" }}>
                 <div style={{ width: 10, height: 10, borderRadius: 2, background: "#DC2626" }} />Missed
               </div>
             </div>
@@ -297,8 +297,8 @@ export function ReportsSlide({ userId, onBack }) {
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" style={{ opacity: .4, marginBottom: 12 }}>
               <rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
             </svg>
-            <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 4 }}>No data for this period</div>
-            <div style={{ fontSize: 12 }}>Mark medicines as taken or missed on the Home screen to see your report.</div>
+            <div style={{ fontSize: "var(--text-sm)", fontWeight: 600, marginBottom: 4 }}>No data for this period</div>
+            <div style={{ fontSize: "var(--text-xs)" }}>Mark medicines as taken or missed on the Home screen to see your report.</div>
           </div>
         )}
       </>)}

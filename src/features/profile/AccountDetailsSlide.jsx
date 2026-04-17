@@ -43,10 +43,10 @@ export function AccountDetailsSlide({ user, onBack }) {
         display: "flex", alignItems: "center", gap: 16,
         marginBottom: 20, color: "#fff",
       }}>
-        <div className="av" style={{ width: 52, height: 52, fontSize: 22 }}>{user.name[0].toUpperCase()}</div>
+        <div className="av" style={{ width: 52, height: 52, fontSize: "var(--text-2xl)" }}>{user.name[0].toUpperCase()}</div>
         <div>
-          <div style={{ fontFamily: "'Syne',sans-serif", fontSize: 18, fontWeight: 700 }}>{user.name}</div>
-          <div style={{ fontSize: 12, opacity: .8, marginTop: 3 }}>{user.email}</div>
+          <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "var(--text-lg)", fontWeight: 700 }}>{user.name}</div>
+          <div style={{ fontSize: "var(--text-xs)", opacity: .8, marginTop: 3 }}>{user.email}</div>
         </div>
       </div>
 
@@ -59,8 +59,8 @@ export function AccountDetailsSlide({ user, onBack }) {
                 <d.Icon />
               </div>
               <div>
-                <div style={{ fontSize: 11, color: "var(--t3)", marginBottom: 1, textTransform: "uppercase", letterSpacing: ".4px", fontWeight: 500 }}>{d.label}</div>
-                <div style={{ fontSize: 14, fontWeight: 600, color: "var(--tx)" }}>{d.value}</div>
+                <div style={{ fontSize: "var(--text-xs)", color: "var(--t3)", marginBottom: 1, textTransform: "uppercase", letterSpacing: ".4px", fontWeight: 500 }}>{d.label}</div>
+                <div style={{ fontSize: "var(--text-sm)", fontWeight: 600, color: "var(--tx)" }}>{d.value}</div>
               </div>
             </div>
           </div>
@@ -71,7 +71,7 @@ export function AccountDetailsSlide({ user, onBack }) {
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--t3)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: 1 }}>
           <rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
         </svg>
-        <p style={{ fontSize: 12, color: "var(--t3)", lineHeight: 1.6 }}>
+        <p style={{ fontSize: "var(--text-xs)", color: "var(--t3)", lineHeight: 1.6 }}>
           Your account information is stored securely. To change your email or password, contact support or update it through the settings.
         </p>
       </div>

@@ -231,7 +231,7 @@ export function App() {
                         alignItems: "center",
                         justifyContent: "space-between",
                         gap: 12,
-                        fontSize: 13,
+                        fontSize: "var(--text-sm)",
                         fontWeight: 600,
                         borderBottom: "1px solid rgba(255,255,255,.1)",
                       }}>
@@ -245,9 +245,9 @@ export function App() {
                         </svg>
                         <div>
                           <span style={{ opacity: .8, fontWeight: 500 }}>Viewing as Caretaker for </span>
-                          <span style={{ fontWeight: 800, fontSize: 14 }}>{activePatient.name}</span>
+                          <span style={{ fontWeight: 800, fontSize: "var(--text-sm)" }}>{activePatient.name}</span>
                           {activePatient.email && (
-                            <span style={{ opacity: .65, fontWeight: 400, marginLeft: 6, fontSize: 12 }}>({activePatient.email})</span>
+                            <span style={{ opacity: .65, fontWeight: 400, marginLeft: 6, fontSize: "var(--text-xs)" }}>({activePatient.email})</span>
                           )}
                         </div>
                       </div>
@@ -259,7 +259,7 @@ export function App() {
                           borderRadius: 8,
                           color: "#fff",
                           padding: "4px 12px",
-                          fontSize: 12,
+                          fontSize: "var(--text-xs)",
                           fontWeight: 700,
                           cursor: "pointer",
                           whiteSpace: "nowrap",
@@ -279,14 +279,14 @@ export function App() {
 
                     {/* Search bar — shown inline on tablet/desktop */}
                     <div className="hdr-search"
-                      onClick={() => { setSearchOpen(true); setNotifOpen(false); setFabOpen(false); }}
+                      onClick={() => { setSearchOpen(true); setFabOpen(false); }}
                       style={{ cursor: "text" }}>
                       <Icons.search />
                       <input
                         readOnly
                         placeholder="Search medicines, prescriptions…"
                         style={{ cursor: "text" }}
-                        onClick={() => { setSearchOpen(true); setNotifOpen(false); setFabOpen(false); }}
+                        onClick={() => { setSearchOpen(true); setFabOpen(false); }}
                       />
                     </div>
 
@@ -294,7 +294,7 @@ export function App() {
                     <div className="hdr-actions">
                       {/* Mobile search icon */}
                       <button className="ic-btn hdr-mobile-search" title="Search"
-                        onClick={() => { setSearchOpen(true); setNotifOpen(false); setFabOpen(false); }}>
+                        onClick={() => { setSearchOpen(true); setFabOpen(false); }}>
                         <Icons.search />
                       </button>
 

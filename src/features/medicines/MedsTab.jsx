@@ -99,7 +99,7 @@ function CatFilterStrip({ cats, filter, setFilter, count }) {
                 background: active ? cat.bg : "var(--sf)",
                 color: active ? cat.color : "var(--t2)",
                 fontFamily: "'DM Sans', sans-serif",
-                fontSize: 13, fontWeight: active ? 700 : 500,
+                fontSize: "var(--text-sm)", fontWeight: active ? 700 : 500,
                 cursor: "pointer", outline: "none",
                 boxShadow: active ? `0 2px 8px ${cat.color}28` : "var(--sh)",
                 transition: "border .15s, background .15s, color .15s, box-shadow .15s",
@@ -110,7 +110,7 @@ function CatFilterStrip({ cats, filter, setFilter, count }) {
                   background: active ? cat.color : "var(--bd)",
                   color: active ? "#fff" : "var(--t2)",
                   borderRadius: 20, padding: "1px 7px",
-                  fontSize: 11, fontWeight: 700,
+                  fontSize: "var(--text-xs)", fontWeight: 700,
                   transition: "background .15s, color .15s",
                 }}>{n}</span>
               )}
@@ -242,10 +242,10 @@ export function MedsTab({ userId, toast, caretakerPatientId, onBack }) {
       {/* ── Dashboard / Home Section ── */}
       <div style={{ marginBottom: 32 }}>
         <div style={{ marginBottom: 20 }}>
-          <h1 style={{ fontSize: 24, fontWeight: 800, color: "var(--tx)", margin: 0, fontFamily: "'Syne', sans-serif" }}>
+          <h1 style={{ fontSize: "var(--text-2xl)", fontWeight: 800, color: "var(--tx)", margin: 0, fontFamily: "'Syne', sans-serif" }}>
             {getTimeGreeting()} 👋
           </h1>
-          <p style={{ color: "var(--t3)", margin: "4px 0 0 0", fontSize: 15, fontWeight: 500 }}>
+          <p style={{ color: "var(--t3)", margin: "4px 0 0 0", fontSize: "var(--text-base)", fontWeight: 500 }}>
             Stay on track with your meds
           </p>
         </div>
@@ -258,22 +258,22 @@ export function MedsTab({ userId, toast, caretakerPatientId, onBack }) {
           {/* Today */}
           <div style={{ background: "var(--sf)", backdropFilter: "blur(12px)", borderRadius: 16, padding: "16px", boxShadow: "var(--sh)", border: "1px solid var(--bd)", display: "flex", alignItems: "center", gap: 12 }}>
             <div style={{ fontSize: 26, fontWeight: 800, color: "#10B981", lineHeight: 1 }}>{statToday}</div>
-            <div style={{ fontSize: 13, fontWeight: 600, color: "var(--t2)", lineHeight: 1.2 }}>Today's<br />Meds</div>
+            <div style={{ fontSize: "var(--text-sm)", fontWeight: 600, color: "var(--t2)", lineHeight: 1.2 }}>Today's<br />Meds</div>
           </div>
           {/* Expired */}
           <div style={{ background: "var(--sf)", backdropFilter: "blur(12px)", borderRadius: 16, padding: "16px", boxShadow: "var(--sh)", border: "1px solid var(--bd)", display: "flex", alignItems: "center", gap: 12 }}>
             <div style={{ fontSize: 26, fontWeight: 800, color: "#EF4444", lineHeight: 1 }}>{statExpired}</div>
-            <div style={{ fontSize: 13, fontWeight: 600, color: "var(--t2)", lineHeight: 1.2 }}>Expired<br />Meds</div>
+            <div style={{ fontSize: "var(--text-sm)", fontWeight: 600, color: "var(--t2)", lineHeight: 1.2 }}>Expired<br />Meds</div>
           </div>
           {/* Low Stock */}
           <div style={{ background: "var(--sf)", backdropFilter: "blur(12px)", borderRadius: 16, padding: "16px", boxShadow: "var(--sh)", border: "1px solid var(--bd)", display: "flex", alignItems: "center", gap: 12 }}>
             <div style={{ fontSize: 26, fontWeight: 800, color: "#F97316", lineHeight: 1 }}>{statLow}</div>
-            <div style={{ fontSize: 13, fontWeight: 600, color: "var(--t2)", lineHeight: 1.2 }}>Low<br />Stock</div>
+            <div style={{ fontSize: "var(--text-sm)", fontWeight: 600, color: "var(--t2)", lineHeight: 1.2 }}>Low<br />Stock</div>
           </div>
           {/* Refills */}
           <div style={{ background: "var(--sf)", backdropFilter: "blur(12px)", borderRadius: 16, padding: "16px", boxShadow: "var(--sh)", border: "1px solid var(--bd)", display: "flex", alignItems: "center", gap: 12 }}>
             <div style={{ fontSize: 26, fontWeight: 800, color: "#3B82F6", lineHeight: 1 }}>{statRefill}</div>
-            <div style={{ fontSize: 13, fontWeight: 600, color: "var(--t2)", lineHeight: 1.2 }}>Upcoming<br />Refills</div>
+            <div style={{ fontSize: "var(--text-sm)", fontWeight: 600, color: "var(--t2)", lineHeight: 1.2 }}>Upcoming<br />Refills</div>
           </div>
         </div>
       </div>
@@ -294,7 +294,7 @@ export function MedsTab({ userId, toast, caretakerPatientId, onBack }) {
               width: "100%", padding: "12px 16px 12px 42px", borderRadius: 16,
               border: "1px solid rgba(0,0,0,0.06)", background: "#ffffff",
               boxShadow: "0 2px 10px rgba(0,0,0,0.02)", outline: "none",
-              fontSize: 15, color: "#1e293b", fontFamily: "'DM Sans', sans-serif",
+              fontSize: "var(--text-base)", color: "#1e293b", fontFamily: "'DM Sans', sans-serif",
               transition: "border 0.2s, box-shadow 0.2s"
             }}
             onFocus={e => { e.target.style.borderColor = "#3b82f6"; e.target.style.boxShadow = "0 4px 14px rgba(59,130,246,0.1)"; }}

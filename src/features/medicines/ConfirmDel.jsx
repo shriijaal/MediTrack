@@ -3,7 +3,7 @@ import { Modal } from "../../components/common/Modal";
 export function ConfirmDel({ name, onConfirm, onClose }) {
   return (
     <Modal title="Remove Medicine" onClose={onClose}>
-      <p style={{ fontSize: 14, color: "var(--t2)" }}>
+      <p style={{ fontSize: "var(--text-sm)", color: "var(--t2)" }}>
         Remove <strong>{name}</strong>?
       </p>
       <div className="mod-ac">

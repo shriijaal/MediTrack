@@ -66,8 +66,8 @@ export function RxViewer({ rx, onClose, onDownload }) {
                 {/* Fallback if image fails to load */}
                 <div style={{ display: "none", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100%", color: "rgba(255,255,255,.5)", gap: 12 }}>
                   <SvgI d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" s={48} />
-                  <div style={{ fontSize: 13 }}>Image could not be loaded</div>
-                  <a href={src} target="_blank" rel="noreferrer" style={{ color: "var(--g)", fontSize: 13, fontWeight: 600 }}>Open in new tab →</a>
+                  <div style={{ fontSize: "var(--text-sm)" }}>Image could not be loaded</div>
+                  <a href={src} target="_blank" rel="noreferrer" style={{ color: "var(--g)", fontSize: "var(--text-sm)", fontWeight: 600 }}>Open in new tab →</a>
                 </div>
               </div>
               <div className="vwr-zoom-bar">
@@ -92,8 +92,8 @@ export function RxViewer({ rx, onClose, onDownload }) {
           {!isImg && !isPdf && (
             <div className="vwr-unsupported">
               <div style={{ fontSize: 56, marginBottom: 16 }}>📄</div>
-              <div style={{ fontFamily: "'Syne',sans-serif", fontSize: 16, fontWeight: 700, marginBottom: 8 }}>{rx.name}</div>
-              <div style={{ fontSize: 13, color: "rgba(255,255,255,.5)", marginBottom: 24 }}>This file type can't be previewed in-app.</div>
+              <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "var(--text-base)", fontWeight: 700, marginBottom: 8 }}>{rx.name}</div>
+              <div style={{ fontSize: "var(--text-sm)", color: "rgba(255,255,255,.5)", marginBottom: 24 }}>This file type can't be previewed in-app.</div>
               <button className="btn btn-p" style={{ width: "auto", padding: "11px 28px" }} onClick={onDownload}>
                 <SvgI d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" /> Download File
               </button>

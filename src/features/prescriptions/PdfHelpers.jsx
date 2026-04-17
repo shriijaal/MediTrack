@@ -68,7 +68,7 @@ export function PdfThumb({ dataUrl, size = 58, fullWidth = false }) {
           }}>
             <div style={{ width: 32, height: 32, border: "2.5px solid rgba(255,255,255,.1)", borderTopColor: "var(--g)", borderRadius: "50%", animation: "spin .8s linear infinite" }} />
             <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
-            <span style={{ fontSize: 12 }}>Loading PDF…</span>
+            <span style={{ fontSize: "var(--text-xs)" }}>Loading PDF…</span>
           </div>
         )}
         {failed && (
@@ -77,8 +77,8 @@ export function PdfThumb({ dataUrl, size = 58, fullWidth = false }) {
             justifyContent: "center", gap: 6, width: "100%", height: "100%",
             background: "#1a1a2e", color: "rgba(255,255,255,.4)",
           }}>
-            <span style={{ fontSize: 36 }}>📄</span>
-            <span style={{ fontSize: 12 }}>PDF preview unavailable</span>
+            <span style={{ fontSize: "var(--text-4xl)" }}>📄</span>
+            <span style={{ fontSize: "var(--text-xs)" }}>PDF preview unavailable</span>
           </div>
         )}
         <canvas
@@ -96,7 +96,7 @@ export function PdfThumb({ dataUrl, size = 58, fullWidth = false }) {
   // Square thumbnail mode
   if (failed) return (
     <div style={{ width: size, height: size, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: "#FEE2E2", borderRadius: 8, gap: 2 }}>
-      <span style={{ fontSize: 22 }}>📄</span>
+      <span style={{ fontSize: "var(--text-2xl)" }}>📄</span>
       <span style={{ fontSize: 8, fontWeight: 800, color: "#DC2626", letterSpacing: ".5px" }}>PDF</span>
     </div>
   );
@@ -196,7 +196,7 @@ export function PdfViewer({ dataUrl }) {
   if (error) return (
     <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 12, color: "rgba(255,255,255,.6)", padding: 32, textAlign: "center" }}>
       <div style={{ fontSize: 40 }}>⚠️</div>
-      <div style={{ fontSize: 14 }}>{error}</div>
+      <div style={{ fontSize: "var(--text-sm)" }}>{error}</div>
     </div>
   );
 
@@ -204,17 +204,17 @@ export function PdfViewer({ dataUrl }) {
     <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" }}>
       {/* Zoom + page count bar */}
       <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, padding: "10px 16px", background: "rgba(255,255,255,.05)", flexShrink: 0 }}>
-        <button onClick={() => setScale(s => Math.max(s - .25, 0.5))} style={{ background: "rgba(255,255,255,.12)", border: "none", borderRadius: 8, width: 34, height: 34, color: "#fff", fontSize: 18, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>−</button>
-        <span style={{ color: "rgba(255,255,255,.7)", fontSize: 13, minWidth: 52, textAlign: "center" }}>{Math.round(scale * 100)}%</span>
-        <button onClick={() => setScale(s => Math.min(s + .25, 3))} style={{ background: "rgba(255,255,255,.12)", border: "none", borderRadius: 8, width: 34, height: 34, color: "#fff", fontSize: 18, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>+</button>
-        {numPages > 0 && <span style={{ color: "rgba(255,255,255,.4)", fontSize: 12, marginLeft: 4 }}>{numPages} page{numPages !== 1 ? "s" : ""}</span>}
+        <button onClick={() => setScale(s => Math.max(s - .25, 0.5))} style={{ background: "rgba(255,255,255,.12)", border: "none", borderRadius: 8, width: 34, height: 34, color: "#fff", fontSize: "var(--text-lg)", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>−</button>
+        <span style={{ color: "rgba(255,255,255,.7)", fontSize: "var(--text-sm)", minWidth: 52, textAlign: "center" }}>{Math.round(scale * 100)}%</span>
+        <button onClick={() => setScale(s => Math.min(s + .25, 3))} style={{ background: "rgba(255,255,255,.12)", border: "none", borderRadius: 8, width: 34, height: 34, color: "#fff", fontSize: "var(--text-lg)", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>+</button>
+        {numPages > 0 && <span style={{ color: "rgba(255,255,255,.4)", fontSize: "var(--text-xs)", marginLeft: 4 }}>{numPages} page{numPages !== 1 ? "s" : ""}</span>}
       </div>
 
       {/* Spinner overlay while rendering */}
       {loading && (
         <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 14, color: "rgba(255,255,255,.6)" }}>
           <div style={{ width: 40, height: 40, border: "3px solid rgba(255,255,255,.12)", borderTopColor: "var(--g)", borderRadius: "50%", animation: "spin .8s linear infinite" }} />
-          <div style={{ fontSize: 13 }}>Rendering PDF…</div>
+          <div style={{ fontSize: "var(--text-sm)" }}>Rendering PDF…</div>
           <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
         </div>
       )}

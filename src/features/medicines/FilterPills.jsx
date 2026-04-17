@@ -132,7 +132,7 @@ export function FilterPills({ cats, filter, setFilter, count }) {
                 background: active ? cat.bg : "var(--sf)",
                 color: active ? cat.color : "var(--t2)",
                 fontFamily: "'DM Sans',sans-serif",
-                fontSize: 13, fontWeight: active ? 700 : 500,
+                fontSize: "var(--text-sm)", fontWeight: active ? 700 : 500,
                 cursor: "pointer",
                 boxShadow: active ? `0 2px 8px ${cat.color}28` : "var(--sh)",
                 transition: "border .15s, background .15s, color .15s, box-shadow .15s",
@@ -147,7 +147,7 @@ export function FilterPills({ cats, filter, setFilter, count }) {
                   background: active ? cat.color : "var(--bd)",
                   color: active ? "#fff" : "var(--t2)",
                   borderRadius: 20, padding: "1px 7px",
-                  fontSize: 11, fontWeight: 700, marginLeft: 1,
+                  fontSize: "var(--text-xs)", fontWeight: 700, marginLeft: 1,
                   transition: "background .15s, color .15s",
                 }}>{n}</span>
               )}

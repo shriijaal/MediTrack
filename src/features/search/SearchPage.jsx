@@ -153,7 +153,7 @@ export function SearchPage({ userId, onBack, onViewRx }) {
                       )}
                     </div>
                     {m.notes && (
-                      <div style={{ fontSize: 13, color: "var(--t3)", fontStyle: "italic" }}>
+                      <div style={{ fontSize: "var(--text-sm)", color: "var(--t3)", fontStyle: "italic" }}>
                         "<Hl text={m.notes} query={query} />"
                       </div>
                     )}
@@ -180,10 +180,10 @@ export function SearchPage({ userId, onBack, onViewRx }) {
                       }
                     </div>
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: 14 }}>
+                      <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "var(--text-sm)" }}>
                         <Hl text={displayTitle} query={query} />
                       </div>
-                      <div style={{ fontSize: 12, color: "var(--t3)", marginTop: 2 }}>
+                      <div style={{ fontSize: "var(--text-xs)", color: "var(--t3)", marginTop: 2 }}>
                         {fmtSz(rx.size)} · {rx.uploadedAt}
                       </div>
                     </div>

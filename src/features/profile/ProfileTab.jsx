@@ -203,7 +203,7 @@ export function ProfileTab({ user, userId, onLogout, onOpenRx, onSwitchPatient, 
         {isCaretaker && (
           <>
             <div style={{ marginBottom: 20 }}>
-              <div style={{ fontSize: 13, fontWeight: 700, color: "var(--t2)", letterSpacing: ".5px", textTransform: "uppercase", marginBottom: 10 }}>
+              <div style={{ fontSize: "var(--text-sm)", fontWeight: 700, color: "var(--t2)", letterSpacing: ".5px", textTransform: "uppercase", marginBottom: 10 }}>
                 Link to a Patient
               </div>
               <div style={{ display: "flex", gap: 8 }}>
@@ -212,7 +212,7 @@ export function ProfileTab({ user, userId, onLogout, onOpenRx, onSwitchPatient, 
                   onChange={e => setLinkCode(e.target.value.toUpperCase())}
                   placeholder="Enter 6-char code e.g. A3F9B2"
                   maxLength={6}
-                  style={{ flex: 1, padding: "11px 14px", border: "1.5px solid var(--bd)", borderRadius: 10, fontFamily: "'DM Sans',sans-serif", fontSize: 15, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", outline: "none" }}
+                  style={{ flex: 1, padding: "11px 14px", border: "1.5px solid var(--bd)", borderRadius: 10, fontFamily: "'DM Sans',sans-serif", fontSize: "var(--text-base)", fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", outline: "none" }}
                   onFocus={e => e.target.style.borderColor = "var(--g)"}
                   onBlur={e => e.target.style.borderColor = "var(--bd)"}
                 />
@@ -221,35 +221,35 @@ export function ProfileTab({ user, userId, onLogout, onOpenRx, onSwitchPatient, 
                 </button>
               </div>
               {linkMsg.text && (
-                <div style={{ marginTop: 8, fontSize: 13, fontWeight: 600, color: linkMsg.ok ? "var(--g)" : "var(--r)" }}>
+                <div style={{ marginTop: 8, fontSize: "var(--text-sm)", fontWeight: 600, color: linkMsg.ok ? "var(--g)" : "var(--r)" }}>
                   {linkMsg.text}
                 </div>
               )}
             </div>
 
-            <div style={{ fontSize: 13, fontWeight: 700, color: "var(--t2)", letterSpacing: ".5px", textTransform: "uppercase", marginBottom: 10 }}>
+            <div style={{ fontSize: "var(--text-sm)", fontWeight: 700, color: "var(--t2)", letterSpacing: ".5px", textTransform: "uppercase", marginBottom: 10 }}>
               Linked Patients
             </div>
             {listLoading ? (
-              <div style={{ color: "var(--t3)", fontSize: 14, padding: "12px 0" }}>Loading…</div>
+              <div style={{ color: "var(--t3)", fontSize: "var(--text-sm)", padding: "12px 0" }}>Loading…</div>
             ) : patients.length === 0 ? (
-              <div style={{ color: "var(--t3)", fontSize: 13, padding: "12px 0" }}>No patients linked yet.</div>
+              <div style={{ color: "var(--t3)", fontSize: "var(--text-sm)", padding: "12px 0" }}>No patients linked yet.</div>
             ) : (
               <div className="ib" style={{ background: "transparent", border: "none", boxShadow: "none" }}>
                 {patients.map(p => (
                   <div key={p.id} className="ir" style={{ cursor: "pointer", background: "var(--sf)", backdropFilter: "blur(10px)", borderRadius: 12, marginBottom: 8, border: "1px solid var(--bd)" }} onClick={() => { onSwitchPatient(p); setInner(null); }}>
                     <div className="il" style={{ flex: 1 }}>
-                      <div className="ii" style={{ background: "var(--gl)", color: "var(--g)", fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: 16 }}>
+                      <div className="ii" style={{ background: "var(--gl)", color: "var(--g)", fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "var(--text-base)" }}>
                         {(p.name || "?")[0].toUpperCase()}
                       </div>
                       <div>
-                        <div style={{ fontSize: 14, fontWeight: 600, color: "var(--tx)" }}>{p.name || "Unknown"}</div>
-                        <div style={{ fontSize: 12, color: "var(--t3)", marginTop: 2 }}>{p.email || ""}</div>
+                        <div style={{ fontSize: "var(--text-sm)", fontWeight: 600, color: "var(--tx)" }}>{p.name || "Unknown"}</div>
+                        <div style={{ fontSize: "var(--text-xs)", color: "var(--t3)", marginTop: 2 }}>{p.email || ""}</div>
                       </div>
                     </div>
                     <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
                       {activePatient?.id === p.id && (
-                        <span style={{ fontSize: 11, fontWeight: 700, background: "var(--gl)", color: "var(--g)", borderRadius: 20, padding: "2px 10px" }}>Active</span>
+                        <span style={{ fontSize: "var(--text-xs)", fontWeight: 700, background: "var(--gl)", color: "var(--g)", borderRadius: 20, padding: "2px 10px" }}>Active</span>
                       )}
                       <Icons.chev />
                     </div>
@@ -270,10 +270,10 @@ export function ProfileTab({ user, userId, onLogout, onOpenRx, onSwitchPatient, 
         {!isCaretaker && (
           <>
             <div style={{ marginBottom: 20 }}>
-              <div style={{ fontSize: 13, fontWeight: 700, color: "var(--t2)", letterSpacing: ".5px", textTransform: "uppercase", marginBottom: 10 }}>
+              <div style={{ fontSize: "var(--text-sm)", fontWeight: 700, color: "var(--t2)", letterSpacing: ".5px", textTransform: "uppercase", marginBottom: 10 }}>
                 Invite a Caretaker
               </div>
-              <p style={{ fontSize: 13, color: "var(--t3)", marginBottom: 12, lineHeight: 1.6 }}>
+              <p style={{ fontSize: "var(--text-sm)", color: "var(--t3)", marginBottom: 12, lineHeight: 1.6 }}>
                 Generate a one-time code and share it with your caretaker. The code expires in 24 hours.
               </p>
               <button className="btn btn-p" style={{ width: "auto" }} onClick={generateInvite} disabled={inviteLoading}>
@@ -282,18 +282,18 @@ export function ProfileTab({ user, userId, onLogout, onOpenRx, onSwitchPatient, 
               {inviteCode && (
                 <div style={{ marginTop: 14, background: "var(--gl)", borderRadius: 14, padding: "16px 18px", border: "1.5px solid var(--gm)" }}>
                   {inviteOffline && (
-                    <div style={{ fontSize: 11, fontWeight: 600, color: "#92400E", background: "var(--al)", borderRadius: 8, padding: "6px 10px", marginBottom: 10 }}>
+                    <div style={{ fontSize: "var(--text-xs)", fontWeight: 600, color: "#92400E", background: "var(--al)", borderRadius: 8, padding: "6px 10px", marginBottom: 10 }}>
                       ⚠️ Backend offline — local demo code. Works on this device only.
                     </div>
                   )}
-                  <div style={{ fontSize: 11, fontWeight: 700, color: "var(--g)", letterSpacing: ".5px", textTransform: "uppercase", marginBottom: 6 }}>
+                  <div style={{ fontSize: "var(--text-xs)", fontWeight: 700, color: "var(--g)", letterSpacing: ".5px", textTransform: "uppercase", marginBottom: 6 }}>
                     Share this code
                   </div>
-                  <div style={{ fontFamily: "'Syne',sans-serif", fontSize: 32, fontWeight: 800, color: "var(--g)", letterSpacing: 6, wordBreak: "break-all" }}>
+                  <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "var(--text-3xl)", fontWeight: 800, color: "var(--g)", letterSpacing: 6, wordBreak: "break-all" }}>
                     {inviteCode}
                   </div>
                   {inviteExpiry && (
-                    <div style={{ fontSize: 11, color: "var(--t3)", marginTop: 6 }}>
+                    <div style={{ fontSize: "var(--text-xs)", color: "var(--t3)", marginTop: 6 }}>
                       Expires: {inviteExpiry}
                     </div>
                   )}
@@ -301,31 +301,31 @@ export function ProfileTab({ user, userId, onLogout, onOpenRx, onSwitchPatient, 
               )}
             </div>
 
-            <div style={{ fontSize: 13, fontWeight: 700, color: "var(--t2)", letterSpacing: ".5px", textTransform: "uppercase", marginBottom: 10 }}>
+            <div style={{ fontSize: "var(--text-sm)", fontWeight: 700, color: "var(--t2)", letterSpacing: ".5px", textTransform: "uppercase", marginBottom: 10 }}>
               My Caretakers
             </div>
             {listLoading ? (
-              <div style={{ color: "var(--t3)", fontSize: 14, padding: "12px 0" }}>Loading…</div>
+              <div style={{ color: "var(--t3)", fontSize: "var(--text-sm)", padding: "12px 0" }}>Loading…</div>
             ) : caretakers.length === 0 ? (
-              <div style={{ color: "var(--t3)", fontSize: 13, padding: "12px 0" }}>No caretakers linked yet.</div>
+              <div style={{ color: "var(--t3)", fontSize: "var(--text-sm)", padding: "12px 0" }}>No caretakers linked yet.</div>
             ) : (
               <div className="ib" style={{ background: "transparent", border: "none", boxShadow: "none" }}>
                 {caretakers.map(c => (
                   <div key={c.id} className="ir" style={{ background: "var(--sf)", backdropFilter: "blur(10px)", borderRadius: 12, marginBottom: 8, border: "1px solid var(--bd)" }}>
                     <div className="il" style={{ flex: 1 }}>
-                      <div className="ii" style={{ background: "rgba(59, 130, 246, 0.1)", color: "#3B82F6", fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: 16 }}>
+                      <div className="ii" style={{ background: "rgba(59, 130, 246, 0.1)", color: "#3B82F6", fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "var(--text-base)" }}>
                         {(c.name || "?")[0].toUpperCase()}
                       </div>
                       <div>
-                        <div style={{ fontSize: 14, fontWeight: 600, color: "var(--tx)" }}>{c.name || "Unknown"}</div>
-                        <div style={{ fontSize: 12, color: "var(--t3)", marginTop: 2 }}>
+                        <div style={{ fontSize: "var(--text-sm)", fontWeight: 600, color: "var(--tx)" }}>{c.name || "Unknown"}</div>
+                        <div style={{ fontSize: "var(--text-xs)", color: "var(--t3)", marginTop: 2 }}>
                           {c.linked_since ? "Linked " + String(c.linked_since).split("T")[0] : "Linked"}
                         </div>
                       </div>
                     </div>
                     <button
                       onClick={() => revokeCaretaker(c.id, c.name)}
-                      style={{ padding: "5px 12px", borderRadius: 8, border: "1.5px solid var(--rl)", background: "var(--rl)", color: "var(--r)", fontSize: 12, fontWeight: 700, cursor: "pointer" }}>
+                      style={{ padding: "5px 12px", borderRadius: 8, border: "1.5px solid var(--rl)", background: "var(--rl)", color: "var(--r)", fontSize: "var(--text-xs)", fontWeight: 700, cursor: "pointer" }}>
                       Revoke
                     </button>
                   </div>
@@ -363,12 +363,12 @@ export function ProfileTab({ user, userId, onLogout, onOpenRx, onSwitchPatient, 
       <div className="pb">
         <div className="av">{user.name[0].toUpperCase()}</div>
         <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ fontFamily: "'Syne',sans-serif", fontSize: 20, fontWeight: 700 }}>{user.name}</div>
+          <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "var(--text-xl)", fontWeight: 700 }}>{user.name}</div>
 
           {/* Email row with eye toggle */}
           <div style={{ display: "flex", alignItems: "center", gap: 7, marginTop: 3 }}>
             <div style={{
-              fontSize: 13, opacity: .9,
+              fontSize: "var(--text-sm)", opacity: .9,
               overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
               letterSpacing: emailHidden ? ".05em" : "normal",
               transition: "all .2s",
@@ -412,7 +412,7 @@ export function ProfileTab({ user, userId, onLogout, onOpenRx, onSwitchPatient, 
             </button>
           </div>
 
-          <div style={{ fontSize: 11, marginTop: 6, background: "rgba(255,255,255,.2)", display: "inline-block", padding: "2px 10px", borderRadius: 20, fontWeight: 500 }}>{user.role}</div>
+          <div style={{ fontSize: "var(--text-xs)", marginTop: 6, background: "rgba(255,255,255,.2)", display: "inline-block", padding: "2px 10px", borderRadius: 20, fontWeight: 500 }}>{user.role}</div>
         </div>
       </div>
 
@@ -437,13 +437,13 @@ export function ProfileTab({ user, userId, onLogout, onOpenRx, onSwitchPatient, 
               const title = rx.title || rx.name;
               return (
                 <div key={rx.id} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                  <span style={{ fontSize: 11, fontWeight: 700, padding: "2px 8px", borderRadius: 6, background: tag.bg, color: tag.col, flexShrink: 0 }}>{tag.label}</span>
-                  <span style={{ fontSize: 13, fontWeight: 500, color: "var(--tx)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", flex: 1 }}>{title}</span>
+                  <span style={{ fontSize: "var(--text-xs)", fontWeight: 700, padding: "2px 8px", borderRadius: 6, background: tag.bg, color: tag.col, flexShrink: 0 }}>{tag.label}</span>
+                  <span style={{ fontSize: "var(--text-sm)", fontWeight: 500, color: "var(--tx)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", flex: 1 }}>{title}</span>
                 </div>
               );
             })}
             {rxList.length > 3 && (
-              <div style={{ fontSize: 12, color: "var(--t3)", fontWeight: 500 }}>+{rxList.length - 3} more</div>
+              <div style={{ fontSize: "var(--text-xs)", color: "var(--t3)", fontWeight: 500 }}>+{rxList.length - 3} more</div>
             )}
           </div>
         )}
@@ -461,10 +461,10 @@ export function ProfileTab({ user, userId, onLogout, onOpenRx, onSwitchPatient, 
             <path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
           </svg>
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 12, opacity: .8 }}>Viewing as Caretaker for</div>
-            <div style={{ fontWeight: 700, fontSize: 14 }}>{activePatient.name}</div>
+            <div style={{ fontSize: "var(--text-xs)", opacity: .8 }}>Viewing as Caretaker for</div>
+            <div style={{ fontWeight: 700, fontSize: "var(--text-sm)" }}>{activePatient.name}</div>
           </div>
-          <button onClick={() => onSwitchPatient(null)} style={{ background: "rgba(255,255,255,.2)", border: "none", borderRadius: 8, color: "#fff", padding: "5px 10px", cursor: "pointer", fontSize: 12, fontWeight: 600 }}>
+          <button onClick={() => onSwitchPatient(null)} style={{ background: "rgba(255,255,255,.2)", border: "none", borderRadius: 8, color: "#fff", padding: "5px 10px", cursor: "pointer", fontSize: "var(--text-xs)", fontWeight: 600 }}>
             Exit
           </button>
         </div>
@@ -482,10 +482,10 @@ export function ProfileTab({ user, userId, onLogout, onOpenRx, onSwitchPatient, 
               </svg>
             </div>
             <div>
-              <div style={{ fontSize: 14, fontWeight: 600, color: "var(--tx)" }}>
+              <div style={{ fontSize: "var(--text-sm)", fontWeight: 600, color: "var(--tx)" }}>
                 {isCaretaker ? "My Patients" : "Caretaker Access"}
               </div>
-              <div style={{ fontSize: 12, color: "var(--t3)", marginTop: 2 }}>
+              <div style={{ fontSize: "var(--text-xs)", color: "var(--t3)", marginTop: 2 }}>
                 {isCaretaker ? "View and manage your patients" : "Invite or manage caretakers"}
               </div>
             </div>
@@ -503,8 +503,8 @@ export function ProfileTab({ user, userId, onLogout, onOpenRx, onSwitchPatient, 
               </svg>
             </div>
             <div>
-              <div style={{ fontSize: 14, fontWeight: 600, color: "var(--tx)" }}>Settings</div>
-              <div style={{ fontSize: 12, color: "var(--t3)", marginTop: 2 }}>Account and app preferences</div>
+              <div style={{ fontSize: "var(--text-sm)", fontWeight: 600, color: "var(--tx)" }}>Settings</div>
+              <div style={{ fontSize: "var(--text-xs)", color: "var(--t3)", marginTop: 2 }}>Account and app preferences</div>
             </div>
           </div>
           <Icons.chev />

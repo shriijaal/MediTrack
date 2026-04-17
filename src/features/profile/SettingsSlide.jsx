@@ -71,7 +71,7 @@ export function SettingsSlide({ onBack, onAccountDetails, onLogout }) {
 
       {/* Notification permission row */}
       <div style={{ marginBottom: 16 }}>
-        <div style={{ fontSize: 12, fontWeight: 700, color: "var(--t2)", letterSpacing: ".5px", textTransform: "uppercase", marginBottom: 8 }}>
+        <div style={{ fontSize: "var(--text-xs)", fontWeight: 700, color: "var(--t2)", letterSpacing: ".5px", textTransform: "uppercase", marginBottom: 8 }}>
           Reminders
         </div>
         <div className="ir" style={{ cursor: notifPerm === "granted" ? "default" : "pointer" }}
@@ -84,20 +84,20 @@ export function SettingsSlide({ onBack, onAccountDetails, onLogout }) {
               </svg>
             </div>
             <div style={{ flex: 1 }}>
-              <div style={{ fontSize: 14, fontWeight: 600, color: "var(--tx)" }}>Medicine Reminders</div>
-              <div style={{ fontSize: 12, marginTop: 2, color: notifStatusColor, fontWeight: 600 }}>{notifStatusLabel}</div>
+              <div style={{ fontSize: "var(--text-sm)", fontWeight: 600, color: "var(--tx)" }}>Medicine Reminders</div>
+              <div style={{ fontSize: "var(--text-xs)", marginTop: 2, color: notifStatusColor, fontWeight: 600 }}>{notifStatusLabel}</div>
               {notifPerm === "denied" && (
-                <div style={{ fontSize: 11, color: "var(--t3)", marginTop: 3 }}>
+                <div style={{ fontSize: "var(--text-xs)", color: "var(--t3)", marginTop: 3 }}>
                   To re-enable: click the lock icon in your browser address bar → Notifications → Allow
                 </div>
               )}
               {notifPerm === "default" && (
-                <div style={{ fontSize: 11, color: "var(--t3)", marginTop: 3 }}>
+                <div style={{ fontSize: "var(--text-xs)", color: "var(--t3)", marginTop: 3 }}>
                   Get notified 5 min before each scheduled dose
                 </div>
               )}
               {notifPerm === "granted" && (
-                <div style={{ fontSize: 11, color: "var(--t3)", marginTop: 3 }}>
+                <div style={{ fontSize: "var(--text-xs)", color: "var(--t3)", marginTop: 3 }}>
                   You'll be notified 5 min before each dose
                 </div>
               )}
@@ -106,7 +106,7 @@ export function SettingsSlide({ onBack, onAccountDetails, onLogout }) {
           {notifPerm === "default" && (
             <button onClick={requestNotifPermission} style={{
               padding: "6px 14px", borderRadius: 8, border: "none",
-              background: "var(--g)", color: "#fff", fontSize: 12, fontWeight: 700,
+              background: "var(--g)", color: "#fff", fontSize: "var(--text-xs)", fontWeight: 700,
               cursor: "pointer", flexShrink: 0,
             }}>Enable</button>
           )}
@@ -124,8 +124,8 @@ export function SettingsSlide({ onBack, onAccountDetails, onLogout }) {
                 <row.Icon />
               </div>
               <div style={{ flex: 1 }}>
-                <div style={{ fontSize: 14, fontWeight: 600, color: "var(--tx)" }}>{row.label}</div>
-                <div style={{ fontSize: 12, color: "var(--t3)", marginTop: 2 }}>{row.sub}</div>
+                <div style={{ fontSize: "var(--text-sm)", fontWeight: 600, color: "var(--tx)" }}>{row.label}</div>
+                <div style={{ fontSize: "var(--text-xs)", color: "var(--t3)", marginTop: 2 }}>{row.sub}</div>
               </div>
             </div>
             {row.chevron && <Icons.chev />}

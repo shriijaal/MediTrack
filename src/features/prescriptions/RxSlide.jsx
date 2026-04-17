@@ -166,7 +166,7 @@ export function RxSlide({ userId, toast, onBack }) {
               onDragLeave={() => setDrag(false)}
               onDrop={e => { e.preventDefault(); setDrag(false); handleFile(e.dataTransfer.files[0]); }}>
               <div style={{ color: "var(--g)", flexShrink: 0 }}><Icons.upload /></div>
-              <div><strong style={{ fontSize: 14 }}>Add prescription</strong><p>Tap or drag a file</p></div>
+              <div><strong style={{ fontSize: "var(--text-sm)" }}>Add prescription</strong><p>Tap or drag a file</p></div>
             </div>
 
             {rxList.map(rx => {
@@ -217,11 +217,11 @@ export function RxSlide({ userId, toast, onBack }) {
                         display: "flex", alignItems: "center", gap: 8,
                       }}>
                         <span style={{
-                          fontSize: 10, fontWeight: 800, background: "#DC2626", color: "#fff",
+                          fontSize: "var(--text-xs)", fontWeight: 800, background: "#DC2626", color: "#fff",
                           borderRadius: 4, padding: "2px 6px", letterSpacing: ".4px", flexShrink: 0,
                         }}>PDF</span>
                         <span style={{
-                          color: "#fff", fontSize: 13, fontWeight: 600,
+                          color: "#fff", fontSize: "var(--text-sm)", fontWeight: 600,
                           whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
                           flex: 1, minWidth: 0,
                         }}>{displayTitle}</span>
@@ -238,24 +238,24 @@ export function RxSlide({ userId, toast, onBack }) {
                     <div style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 10, minWidth: 0 }}>
                       {/* Badge — fixed width, never shrinks */}
                       <span style={{
-                        fontSize: 11, fontWeight: 700, padding: "3px 8px", borderRadius: 8,
+                        fontSize: "var(--text-xs)", fontWeight: 700, padding: "3px 8px", borderRadius: 8,
                         background: b.bg, color: b.col, flexShrink: 0, marginTop: 2,
                         whiteSpace: "nowrap",
                       }}>{b.label}</span>
                       {/* Text block — flex:1 0 0 forces it to shrink */}
                       <div style={{ flex: "1 1 0", minWidth: 0, overflow: "hidden" }}>
                         <div title={displayTitle} style={{
-                          fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: 14,
+                          fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "var(--text-sm)",
                           lineHeight: 1.35,
                           whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
                         }}>{displayTitle}</div>
                         {rx.title && rx.title !== rx.name && (
                           <div title={rx.name} style={{
-                            fontSize: 11, color: "var(--t3)", marginTop: 2,
+                            fontSize: "var(--text-xs)", color: "var(--t3)", marginTop: 2,
                             whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
                           }}>{rx.name}</div>
                         )}
-                        <div style={{ fontSize: 11, color: "var(--t3)", marginTop: 3 }}>
+                        <div style={{ fontSize: "var(--text-xs)", color: "var(--t3)", marginTop: 3 }}>
                           {fmtSz(rx.size)} · {rx.uploadedAt}
                         </div>
                       </div>
@@ -263,13 +263,13 @@ export function RxSlide({ userId, toast, onBack }) {
                     {/* Action buttons */}
                     <div style={{ display: "flex", gap: 8 }}>
                       <button className="rx-btn" title="View"
-                        style={{ flex: 1, width: "auto", borderRadius: 10, height: 36, fontSize: 12, fontWeight: 600, fontFamily: "'Syne',sans-serif", color: "var(--g)", borderColor: "var(--gm)", background: "var(--gl)" }}
+                        style={{ flex: 1, width: "auto", borderRadius: 10, height: 36, fontSize: "var(--text-xs)", fontWeight: 600, fontFamily: "'Syne',sans-serif", color: "var(--g)", borderColor: "var(--gm)", background: "var(--gl)" }}
                         onClick={() => setView(rx)}>
                         <Icons.eye />
                         <span style={{ marginLeft: 5 }}>View</span>
                       </button>
                       <button className="rx-btn" title="Download"
-                        style={{ flex: 1, width: "auto", borderRadius: 10, height: 36, fontSize: 12, fontWeight: 600, fontFamily: "'Syne',sans-serif" }}
+                        style={{ flex: 1, width: "auto", borderRadius: 10, height: 36, fontSize: "var(--text-xs)", fontWeight: 600, fontFamily: "'Syne',sans-serif" }}
                         onClick={() => download(rx)}>
                         <SvgI d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
                         <span style={{ marginLeft: 5 }}>Download</span>
@@ -302,7 +302,7 @@ export function RxSlide({ userId, toast, onBack }) {
             ) : (
               <div style={{ textAlign: "center" }}>
                 <div style={{ fontSize: 40, marginBottom: 6 }}>📄</div>
-                <div style={{ fontSize: 12, color: "var(--t2)", fontWeight: 500 }}>{pending.file.name}</div>
+                <div style={{ fontSize: "var(--text-xs)", color: "var(--t2)", fontWeight: 500 }}>{pending.file.name}</div>
               </div>
             )}
           </div>
@@ -317,12 +317,12 @@ export function RxSlide({ userId, toast, onBack }) {
               onKeyDown={e => e.key === "Enter" && confirmUpload()}
               maxLength={80}
             />
-            <div style={{ fontSize: 11, color: "var(--t3)", marginTop: 5 }}>
+            <div style={{ fontSize: "var(--text-xs)", color: "var(--t3)", marginTop: 5 }}>
               Give it a meaningful name so you can find it easily later.
             </div>
           </div>
 
-          <div style={{ fontSize: 12, color: "var(--t3)", marginBottom: 4 }}>
+          <div style={{ fontSize: "var(--text-xs)", color: "var(--t3)", marginBottom: 4 }}>
             File: <span style={{ color: "var(--t2)", fontWeight: 500 }}>{pending.file.name}</span> · {fmtSz(pending.file.size)}
           </div>
 

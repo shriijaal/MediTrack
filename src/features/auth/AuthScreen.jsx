@@ -98,7 +98,7 @@ export function AuthScreen({ onLogin }) {
         {/* Backend status pill */}
         <div style={{
           display: "inline-flex", alignItems: "center", gap: 6,
-          marginBottom: 20, fontSize: 11, fontWeight: 700,
+          marginBottom: 20, fontSize: "var(--text-xs)", fontWeight: 700,
           color: backendOk === null ? "rgba(255,255,255,0.4)" : backendOk ? "#4EEAAA" : "#F59E0B",
           textTransform: "uppercase", letterSpacing: "0.5px",
           background: "rgba(0,0,0,0.2)", padding: "4px 12px", borderRadius: "20px"
@@ -138,14 +138,14 @@ export function AuthScreen({ onLogin }) {
         </div>
 
         {err && <div className="ferr"><Icons.warn /> {err}</div>}
-        {info && <div style={{ display: "flex", alignItems: "flex-start", gap: 8, background: "rgba(245, 158, 11, 0.1)", color: "#F59E0B", border: "1px solid rgba(245, 158, 11, 0.2)", borderRadius: 10, padding: "10px 14px", marginTop: 8, fontSize: 13 }}>{info}</div>}
+        {info && <div style={{ display: "flex", alignItems: "flex-start", gap: 8, background: "rgba(245, 158, 11, 0.1)", color: "#F59E0B", border: "1px solid rgba(245, 158, 11, 0.2)", borderRadius: 10, padding: "10px 14px", marginTop: 8, fontSize: "var(--text-sm)" }}>{info}</div>}
         
         <button className="btn btn-p" style={{ marginTop: 24 }} onClick={tab === "login" ? login : signup} disabled={loading}>
           {loading ? "Please wait…" : tab === "login" ? "Sign In" : "Create Account"}
         </button>
 
         {tab === "login" && (
-          <p style={{ textAlign: "center", marginTop: 20, fontSize: 13, color: "rgba(255,255,255,0.4)" }}>
+          <p style={{ textAlign: "center", marginTop: 20, fontSize: "var(--text-sm)", color: "rgba(255,255,255,0.4)" }}>
             No account? <button onClick={() => setTab("signup")} style={{ background: "none", border: "none", color: "var(--g)", fontWeight: 700, cursor: "pointer" }}>Sign up free</button>
           </p>
         )}

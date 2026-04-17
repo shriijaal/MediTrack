@@ -217,16 +217,16 @@ export function Dashboard({ userId, onMeds, onRx, onExpiry, onReports }) {
           <div className="hero">
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 14 }}>
               <div>
-                <div style={{ fontSize: 10, opacity: .8, letterSpacing: ".8px", textTransform: "uppercase", fontWeight: 700, marginBottom: 2 }}>
+                <div style={{ fontSize: "var(--text-xs)", opacity: .8, letterSpacing: ".8px", textTransform: "uppercase", fontWeight: 700, marginBottom: 2 }}>
                   {isToday ? "Today" : selD.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" })}
                 </div>
-                <div style={{ fontFamily: "'Syne',sans-serif", fontSize: 18, fontWeight: 800 }}>
+                <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "var(--text-lg)", fontWeight: 800 }}>
                   {isToday ? "Daily Progress" : "Schedule Summary"}
                 </div>
               </div>
               <div style={{ display: "flex", gap: 10, padding: "4px 10px", background: "rgba(0,0,0,.1)", borderRadius: 8 }}>
-                <div style={{ fontSize: 11, fontWeight: 700 }}>{takenCount} <span style={{ opacity: .7, fontWeight: 400 }}>Taken</span></div>
-                <div style={{ fontSize: 11, fontWeight: 700 }}>{pendingCount} <span style={{ opacity: .7, fontWeight: 400 }}>Left</span></div>
+                <div style={{ fontSize: "var(--text-xs)", fontWeight: 700 }}>{takenCount} <span style={{ opacity: .7, fontWeight: 400 }}>Taken</span></div>
+                <div style={{ fontSize: "var(--text-xs)", fontWeight: 700 }}>{pendingCount} <span style={{ opacity: .7, fontWeight: 400 }}>Left</span></div>
               </div>
             </div>
 
@@ -236,20 +236,20 @@ export function Dashboard({ userId, onMeds, onRx, onExpiry, onReports }) {
                 display: "flex", alignItems: "center", gap: 12, animation: "fadeUp .4s ease",
                 border: "1px solid rgba(255,255,255,.08)"
               }}>
-                <div style={{ width: 36, height: 36, borderRadius: 10, background: "rgba(255,255,255,.2)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, flexShrink: 0 }}>💊</div>
+                <div style={{ width: 36, height: 36, borderRadius: 10, background: "rgba(255,255,255,.2)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "var(--text-lg)", flexShrink: 0 }}>💊</div>
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                    <div style={{ fontSize: 10, opacity: .8, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".5px" }}>Next Dose</div>
+                    <div style={{ fontSize: "var(--text-xs)", opacity: .8, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".5px" }}>Next Dose</div>
                     <div style={{ width: 3, height: 3, borderRadius: "50%", background: "#fff", opacity: .4 }} />
-                    <div style={{ fontSize: 10, fontWeight: 600, opacity: .8 }}>{nextDose.med.dosage} {nextDose.med.unit}</div>
+                    <div style={{ fontSize: "var(--text-xs)", fontWeight: 600, opacity: .8 }}>{nextDose.med.dosage} {nextDose.med.unit}</div>
                   </div>
-                  <div style={{ fontFamily: "'Syne',sans-serif", fontSize: 15, fontWeight: 800, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{nextDose.med.name}</div>
+                  <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "var(--text-base)", fontWeight: 800, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{nextDose.med.name}</div>
                 </div>
-                <div style={{ background: "#fff", color: "var(--g)", padding: "4px 10px", borderRadius: 8, fontSize: 12, fontWeight: 800, fontFamily: "'Syne',sans-serif", boxShadow: "0 2px 8px rgba(0,0,0,.08)" }}>{fmt12(nextDose.time)}</div>
+                <div style={{ background: "#fff", color: "var(--g)", padding: "4px 10px", borderRadius: 8, fontSize: "var(--text-xs)", fontWeight: 800, fontFamily: "'Syne',sans-serif", boxShadow: "0 2px 8px rgba(0,0,0,.08)" }}>{fmt12(nextDose.time)}</div>
               </div>
             ) : (
               <div style={{ background: "rgba(255,255,255,.12)", borderRadius: 14, padding: "16px 18px", textAlign: "center", border: "1.5px dashed rgba(255,255,255,.15)" }}>
-                <div style={{ fontSize: 14, fontWeight: 700, fontFamily: "'Syne',sans-serif" }}>
+                <div style={{ fontSize: "var(--text-sm)", fontWeight: 700, fontFamily: "'Syne',sans-serif" }}>
                   {isToday ? "🎉 All caught up for today!" : `📅 Viewing ${selD.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" })}`}
                 </div>
               </div>
@@ -318,8 +318,8 @@ export function Dashboard({ userId, onMeds, onRx, onExpiry, onReports }) {
             </div>
             {times.length === 0 ? (
               <div className="empty" style={{ padding: "30px 20px", textAlign: "center", background: "var(--sf)", backdropFilter: "blur(10px)", borderRadius: "var(--rd)", border: "1.5px dashed var(--bd)" }}>
-                <div style={{ fontSize: 24, marginBottom: 10 }}>🍃</div>
-                <div style={{ fontSize: 13, color: "var(--t3)", fontWeight: 500 }}>No medicines scheduled for this day.</div>
+                <div style={{ fontSize: "var(--text-2xl)", marginBottom: 10 }}>🍃</div>
+                <div style={{ fontSize: "var(--text-sm)", color: "var(--t3)", fontWeight: 500 }}>No medicines scheduled for this day.</div>
               </div>
             ) : (
               times.map(({ med, time }) => {
@@ -345,18 +345,18 @@ export function Dashboard({ userId, onMeds, onRx, onExpiry, onReports }) {
                       {isTaken ? "✅" : isMissed ? "❌" : <Icon s={20} />}
                     </div>
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ fontWeight: 700, fontSize: 14, textDecoration: isMissed ? "line-through" : "none", color: isMissed ? "var(--t3)" : "var(--tx)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{med.name}</div>
-                      <div style={{ fontSize: 11, color: "var(--t3)", marginTop: 1 }}>{med.dosage} {med.unit} · <span style={{ color: "var(--t2)", fontWeight: 600 }}>{med.frequency}</span></div>
+                      <div style={{ fontWeight: 700, fontSize: "var(--text-sm)", textDecoration: isMissed ? "line-through" : "none", color: isMissed ? "var(--t3)" : "var(--tx)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{med.name}</div>
+                      <div style={{ fontSize: "var(--text-xs)", color: "var(--t3)", marginTop: 1 }}>{med.dosage} {med.unit} · <span style={{ color: "var(--t2)", fontWeight: 600 }}>{med.frequency}</span></div>
                     </div>
                     <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 4 }}>
-                      <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: 12, color: isTaken ? "#16A34A" : isMissed ? "#DC2626" : "var(--g)" }}>{fmt12(time)}</div>
+                      <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: "var(--text-xs)", color: isTaken ? "#16A34A" : isMissed ? "#DC2626" : "var(--g)" }}>{fmt12(time)}</div>
                       {!status && !isFutureDate ? (
                         <div style={{ display: "flex", gap: 4 }}>
-                          <button onClick={() => markDose(med.id, time, "taken")} style={{ padding: "3px 8px", borderRadius: 6, border: "1.5px solid #16A34A", background: "#F0FDF4", color: "#16A34A", fontSize: 10, fontWeight: 700, cursor: "pointer" }}>Take</button>
-                          <button onClick={() => markDose(med.id, time, "missed")} style={{ padding: "3px 8px", borderRadius: 6, border: "1.5px solid #FECACA", background: "#FEF2F2", color: "#DC2626", fontSize: 10, fontWeight: 700, cursor: "pointer" }}>Skip</button>
+                          <button onClick={() => markDose(med.id, time, "taken")} style={{ padding: "3px 8px", borderRadius: 6, border: "1.5px solid #16A34A", background: "#F0FDF4", color: "#16A34A", fontSize: "var(--text-xs)", fontWeight: 700, cursor: "pointer" }}>Take</button>
+                          <button onClick={() => markDose(med.id, time, "missed")} style={{ padding: "3px 8px", borderRadius: 6, border: "1.5px solid #FECACA", background: "#FEF2F2", color: "#DC2626", fontSize: "var(--text-xs)", fontWeight: 700, cursor: "pointer" }}>Skip</button>
                         </div>
                       ) : status ? (
-                        <button onClick={() => markDose(med.id, time, null)} style={{ background: "none", border: "1.5px solid var(--bd)", padding: "1px 6px", borderRadius: 5, color: "var(--t3)", fontSize: 9, fontWeight: 600, cursor: "pointer" }}>Undo</button>
+                        <button onClick={() => markDose(med.id, time, null)} style={{ background: "none", border: "1.5px solid var(--bd)", padding: "1px 6px", borderRadius: 5, color: "var(--t3)", fontSize: "var(--text-xs)", fontWeight: 600, cursor: "pointer" }}>Undo</button>
                       ) : null}
                     </div>
                   </div>
@@ -379,17 +379,17 @@ export function Dashboard({ userId, onMeds, onRx, onExpiry, onReports }) {
                     <Icons.reports />
                   </div>
                   <div>
-                    <div style={{ fontFamily: "'Syne',sans-serif", fontSize: 14, fontWeight: 700 }}>Health Reports</div>
-                    <div style={{ fontSize: 11, opacity: .75 }}>Analysis & Trends</div>
+                    <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "var(--text-sm)", fontWeight: 700 }}>Health Reports</div>
+                    <div style={{ fontSize: "var(--text-xs)", opacity: .75 }}>Analysis & Trends</div>
                   </div>
                 </div>
                 <div style={{ textAlign: "right" }}>
-                  <div style={{ fontSize: 18, fontWeight: 800, fontFamily: "'Syne',sans-serif" }}>{weeklyAdherence}%</div>
-                  <div style={{ fontSize: 9, opacity: .8, fontWeight: 600 }}>WEEKLY AVG</div>
+                  <div style={{ fontSize: "var(--text-lg)", fontWeight: 800, fontFamily: "'Syne',sans-serif" }}>{weeklyAdherence}%</div>
+                  <div style={{ fontSize: "var(--text-xs)", opacity: .8, fontWeight: 600 }}>WEEKLY AVG</div>
                 </div>
               </div>
             </div>
-            <div style={{ padding: "10px 16px", display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: 11, fontWeight: 600, color: "var(--t2)" }}>
+            <div style={{ padding: "10px 16px", display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: "var(--text-xs)", fontWeight: 600, color: "var(--t2)" }}>
               <span>Weekly Progress</span>
               <div style={{ display: "flex", gap: 4 }}>
                 {weekDots.map((dot, i) => (
@@ -403,11 +403,11 @@ export function Dashboard({ userId, onMeds, onRx, onExpiry, onReports }) {
             {/* Active Meds simplified widget */}
             <div className="glass-card" style={{ overflow: "hidden" }}>
               <div style={{ padding: "10px 12px", borderBottom: "1px solid var(--bd)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <div style={{ fontFamily: "'Syne',sans-serif", fontSize: 12, fontWeight: 700 }}>Active Meds</div>
-                <div style={{ background: "var(--gl)", borderRadius: 12, padding: "1px 6px", fontSize: 10, fontWeight: 800, color: "var(--g)" }}>{meds.length}</div>
+                <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "var(--text-xs)", fontWeight: 700 }}>Active Meds</div>
+                <div style={{ background: "var(--gl)", borderRadius: 12, padding: "1px 6px", fontSize: "var(--text-xs)", fontWeight: 800, color: "var(--g)" }}>{meds.length}</div>
               </div>
               {meds.length === 0 ? (
-                <div style={{ padding: "12px", textAlign: "center", fontSize: 11, color: "var(--t3)" }}>No items</div>
+                <div style={{ padding: "12px", textAlign: "center", fontSize: "var(--text-xs)", color: "var(--t3)" }}>No items</div>
               ) : (
                 meds.slice(0, 3).map((m, i) => {
                   const nextTime = getNextDoseInMeds(m);
@@ -416,10 +416,10 @@ export function Dashboard({ userId, onMeds, onRx, onExpiry, onReports }) {
                     <div key={m.id} onClick={onMeds} style={{ display: "flex", alignItems: "center", padding: "8px 12px", gap: 10, borderBottom: i < Math.min(meds.length, 3) - 1 ? "1px solid var(--bd)" : "none", cursor: "pointer" }}>
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
-                          <div style={{ fontSize: 12, fontWeight: 600, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{m.name}</div>
+                          <div style={{ fontSize: "var(--text-xs)", fontWeight: 600, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{m.name}</div>
                           {isLow && <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--r)" }} title="Low Stock" />}
                         </div>
-                        <div style={{ fontSize: 9, color: "var(--t3)", display: "flex", justifyContent: "space-between" }}>
+                        <div style={{ fontSize: "var(--text-xs)", color: "var(--t3)", display: "flex", justifyContent: "space-between" }}>
                           <span>{m.dosage} {m.unit}</span>
                           {nextTime && <span style={{ color: "var(--g)", fontWeight: 700 }}>Next: {fmt12(nextTime)}</span>}
                         </div>
@@ -434,7 +434,7 @@ export function Dashboard({ userId, onMeds, onRx, onExpiry, onReports }) {
             <div onClick={onExpiry} className="glass-card" style={{ padding: "10px 12px", cursor: "pointer", display: "flex", flexDirection: "column", gap: 8, overflow: "hidden" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                 <div style={{ width: 28, height: 28, background: "#FFF7ED", color: "#C2410C", borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center" }}><Icons.expire /></div>
-                <div style={{ fontFamily: "'Syne',sans-serif", fontSize: 12, fontWeight: 700 }}>Expiry Tracker</div>
+                <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "var(--text-xs)", fontWeight: 700 }}>Expiry Tracker</div>
               </div>
               
               <div style={{ marginTop: 2 }}>
@@ -443,7 +443,7 @@ export function Dashboard({ userId, onMeds, onRx, onExpiry, onReports }) {
                   <div className="exp-seg amb" style={{ width: `${(expiring.length / (meds.length || 1)) * 100}%` }} />
                   <div className="exp-seg grn" style={{ flex: 1 }} />
                 </div>
-                <div style={{ display: "flex", justifyContent: "space-between", fontSize: 9, fontWeight: 700, marginTop: 4 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", fontSize: "var(--text-xs)", fontWeight: 700, marginTop: 4 }}>
                   <span style={{ color: expired.length > 0 ? "var(--r)" : "var(--t3)" }}>{expired.length} Expired</span>
                   <span style={{ color: expiring.length > 0 ? "var(--a)" : "var(--t3)" }}>{expiring.length} Soon</span>
                 </div>
@@ -456,8 +456,8 @@ export function Dashboard({ userId, onMeds, onRx, onExpiry, onReports }) {
             <div onClick={onRx} style={{ display: "flex", alignItems: "center", gap: 12, flex: 1 }}>
               <div style={{ width: 34, height: 34, borderRadius: 10, background: "var(--bl)", color: "var(--b)", display: "flex", alignItems: "center", justifyContent: "center" }}><Icons.rx /></div>
               <div style={{ flex: 1 }}>
-                <div style={{ fontFamily: "'Syne',sans-serif", fontSize: 13, fontWeight: 700 }}>Prescriptions</div>
-                <div style={{ fontSize: 10, color: "var(--t3)" }}>{rxList[rxList.length - 1]?.title || `${rxList.length} documents`}</div>
+                <div style={{ fontFamily: "'Syne',sans-serif", fontSize: "var(--text-sm)", fontWeight: 700 }}>Prescriptions</div>
+                <div style={{ fontSize: "var(--text-xs)", color: "var(--t3)" }}>{rxList[rxList.length - 1]?.title || `${rxList.length} documents`}</div>
               </div>
             </div>
             <label style={{ width: 32, height: 32, borderRadius: 8, background: "var(--s2)", border: "1.5px solid var(--bd)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--g)" }}>
